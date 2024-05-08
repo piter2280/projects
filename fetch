@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button onclick="getData()">getData</button>
+
+<script>
+
+async function getData(){
+    try{
+        const res = await fetch('https://776614bb5bcaaaa6.mokky.dev/info3')
+        const data = await res.json()
+        ProductParsing(data)
+    }catch(e){
+        console.error(e);
+    }
+}
+function ProductParsing(arr){
+    arr.map((el) => {
+        const h1 = document.createElement('h1')
+        h1.textContent =  el.in1
+        const h3 = document.createElement('h3')
+        h3.textContent = el.in2
+        const h6 = document.createElement('h6')
+        h6.textContent = el.in3
+        document.body.appendChild(h1)
+        document.body.appendChild(h3)
+        document.body.appendChild(h6)
+    })
+}
+
+</script>
+
+</body>
+</html>
